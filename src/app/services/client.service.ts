@@ -28,4 +28,8 @@ export class ClientService {
     this.clients.push(client);
   }
 
+  updateClient(id: string, client: Client) {
+    return this.clients.update(id, client);
+  }
+
 }

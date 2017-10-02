@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { SettingsService } from '../../services/settings.service';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -18,7 +19,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private flashMessagesService: FlashMessagesService
+    private flashMessagesService: FlashMessagesService,
+    private settingsService: SettingsService
   ) { }
 
   ngOnInit() {
@@ -31,6 +33,7 @@ export class NavbarComponent implements OnInit {
         } else {
           this.isLoggedIn = false;
         }
+        this.showRegister = this.settingsService.getSettings().allowRegistration;
       });
   }
 

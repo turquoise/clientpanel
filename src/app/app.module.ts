@@ -34,7 +34,9 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'add-client', component: AddClientComponent, canActivate: [AuthGuard] },
   { path: 'client/:id', component: ClientDetailsComponent, canActivate: [AuthGuard] },
-  { path: 'edit-client/:id', component: EditClientComponent, canActivate: [AuthGuard] }
+  { path: 'edit-client/:id', component: EditClientComponent, canActivate: [AuthGuard] },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 export const firebaseConfig = {
